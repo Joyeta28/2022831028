@@ -6,6 +6,17 @@ const int SCREEN_WIDTH=640;
 const int SCREEN_HEIGHT=480;
 const int RADIUS=60;
 #undef main
+void SDL_DrawCircle(SDL_Renderer * renderer,int centerX,int centerY,int radius){
+     for(int i=0;i<=radius*2;i++){
+        for(int j=0;j<=radius*2;j++){
+            int dx=radius - i;
+            int dy = radius -j;
+            if((dx*dx + dy*dy)<=(radius*radius)){
+                SDL_RenderDrawPoint(renderer,centerX+dx,centerY+dy);
+            }
+        }
+    }
+}
 int main(){
    SDL_Window* window = nullptr;
     SDL_Renderer* renderer = nullptr;
@@ -32,15 +43,8 @@ int main(){
     SDL_RenderClear(renderer);
     SDL_SetRenderDrawColor(renderer,0,0,0,255);
 
-    for(int w=0;w<=radius*2;w++){
-        for(int h=0;h<=radius*2;h++){
-            int dx=radius - w;
-            int dy = radius -h;
-            if((dx*dx + dy*dy)<=(radius*radius)){
-                SDL_RenderDrawPoint(renderer,centerX+dx,centerY+dy);
-            }
-        }
-    }
+    SDL_DrawCircle(renderer,centerX,centerY,radius);
+   
    SDL_RenderPresent(renderer);
 
     bool quit= false;
