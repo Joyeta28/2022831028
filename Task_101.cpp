@@ -46,9 +46,9 @@ int main()
     int centerX = SCREEN_WIDTH / 2;
     int centerY = SCREEN_HEIGHT / 2;
     int radius = RADIUS;
-    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+    SDL_SetRenderDrawColor(renderer, 225, 165, 0, 255);
     SDL_RenderClear(renderer);
-    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    SDL_SetRenderDrawColor(renderer, 128, 0, 128, 255);
 
     SDL_DrawCircle(renderer, centerX, centerY, radius);
 

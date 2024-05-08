@@ -76,11 +76,33 @@ int main(){
                 }
             }
         }
+        circleX2+=SPEED2;
+        if( circleX2 + circleradius >= SCREEN_WIDTH ){
+            circleX2=circleradius;
+        }
+
+          bool collision = false;
+        int dx = circleX1 - circleX2;
+        int dy = circleY1 - circleY2;
+       
+        if ((dx*dx +dy*dy) <= circleradius*circleradius ) {
+            collision = true;
+        }
+
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderClear(renderer);
         SDL_SetRenderDrawColor(renderer, 0, 0, 200, 255); 
         SDL_DrawCircle(renderer, circleX1, circleY1, circleradius);
+        SDL_SetRenderDrawColor(renderer, 255, 255, 0, 255); 
+        SDL_DrawCircle(renderer, circleX2, circleY2, circleradius);
 
+        
+        if (collision) {
+            SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+            SDL_DrawCircle(renderer, circleX1, circleY1, circleradius);
+            SDL_DrawCircle(renderer, circleX2, circleY2, circleradius);
+        }
+        
         SDL_RenderPresent(renderer);
     }
        
