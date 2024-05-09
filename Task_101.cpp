@@ -14,6 +14,7 @@ void SDL_DrawCircle(SDL_Renderer *renderer, int centerX, int centerY, int radius
         {
             int dx = radius - i;
             int dy = radius - j;
+            //(x-h)^2 + (y-k)^2 = radius^2
             if ((dx * dx + dy * dy) <= (radius * radius))
             {
                 SDL_RenderDrawPoint(renderer, centerX + dx, centerY + dy);
@@ -31,7 +32,7 @@ int main()
         cout << "SDL could not initialize! SDL_Error: " << SDL_GetError() << endl;
     }
 
-    window = SDL_CreateWindow("Expanding Circle", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+    window = SDL_CreateWindow("Expanding Circle", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
     if (window == nullptr)
     {
         cout << "Window could not be created! SDL_Error: " << SDL_GetError() << endl;
