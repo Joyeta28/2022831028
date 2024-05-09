@@ -41,10 +41,10 @@ int main(){
         cout<< "Renderer could not be created! SDL_Error: "<<SDL_GetError();
         return 1;
     }
-    int circleX1=SCREEN_WIDTH/2 - RADIUS;
-    int circleY1=SCREEN_HEIGHT/2 - RADIUS;
-    int circleX2=SCREEN_WIDTH/2-RADIUS;
-    int circleY2=SCREEN_HEIGHT/2-(3*RADIUS);
+    int circleX1=SCREEN_WIDTH/2 ;
+    int circleY1=0;
+    int circleX2=SCREEN_WIDTH/2;
+    int circleY2=SCREEN_HEIGHT/2;
     int circleradius=RADIUS;
 
      bool running = true;
